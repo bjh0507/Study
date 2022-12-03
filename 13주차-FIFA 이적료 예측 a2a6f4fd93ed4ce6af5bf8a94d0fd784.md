@@ -16,7 +16,7 @@ test = pd.read_csv('/content/FIFA_test.csv')
 train
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-1.png)
 
 ```
 df = train.copy()
@@ -31,7 +31,7 @@ df
 df.age.value_counts()
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled%201.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-2.png)
 
 ```
 #나이대별 평균 이적료
@@ -44,7 +44,7 @@ df.loc[(df['age'] >= 40) & (df['age'] < 50) , 'age_value'] = '40대'
 df
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled%202.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-3.png)
 
 ```
 df_age = pd.DataFrame(df.groupby('age_value')['value'].mean().round(2).sort_values(ascending=False))
@@ -52,7 +52,7 @@ fig = px.bar(df_age, x=df_age.index, y='value', color=df_age.index, title='연�
 fig.show()
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled%203.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-4.png)
 
 - 20, 30대 선수들의 평균 이적료가 높음을 알 수 있음
 
@@ -68,14 +68,14 @@ df_country = pd.DataFrame(df.groupby('continent')['value'].mean().round(2).sort_
 df_country
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled%204.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-5.png)
 
 ```
 fig = px.bar(df_country, x=df_country.index, y='value', color=df_country.index, title='국적별 이적료 시각화')
 fig.show()
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled%205.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-6.png)
 
 - 미국, 아프리카, 유럽쪽 선수들의 이적료가 다른 국적보다 높음을 알 수 있음
     - 국적에 따라 피지컬의 차이가 존재 → 추후 머신러닝 모델을 돌릴 때 피쳐로 활용 가능
@@ -89,7 +89,7 @@ fig = px.bar(df_foot, x=df_foot.index, y='value', color=df_foot.index)
 fig.show()
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled%206.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-7.png)
 
 - 왼발/오른발에 따른 평균 이적료 차이가 거의 없음 → 이적료에 중요한 영향을 미치는 변수가 아님
 
@@ -107,7 +107,7 @@ fig = px.pie(df_position, names=df_position.index, values='value', color=df_posi
 fig.show()
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled%207.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-8.png)
 
 - 스트라이커와 미드필더의 포지션에서 높은 이적료를 보임
     - 또한, 포지션별 이적료 차이가 존재 → 의미 있는 변수
@@ -175,7 +175,7 @@ for i in list:
   print('MAE score:', mean_absolute_error(test_y, y_pred))
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled%208.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-9.png)
 
 - mae값이 낮으면 좋음
     - n_estimator(생성 트리 개수)가 30일 때 가장 성능이 좋음을 알 수 있음
@@ -191,7 +191,7 @@ sample_submission['value'] = prediction.round(2)
 sample_submission
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled%209.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-10.png)
 
 ### 선수의 국적을 나타내는 continent를 포함시켜 다시 수행
 
@@ -225,7 +225,7 @@ for i in list :
   print('MAE score:', mean_absolute_error(val_y, y_pred))
 ```
 
-![Untitled](13%E1%84%8C%E1%85%AE%E1%84%8E%E1%85%A1-FIFA%20%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%85%E1%85%AD%20%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8%20a2a6f4fd93ed4ce6af5bf8a94d0fd784/Untitled%2010.png)
+![Untitled](https://github.com/bjh0507/Study/blob/main/%EC%95%84%EB%A7%88%EC%A1%B4%EB%8D%B0%EC%9D%B4%ED%84%B0_EDA/7-11.png)
 
 - 여전히 30일 때 가장 좋은 mae값을 보이나, 변수 추가 후 30일때의 mae값이 증가함을 알 수 있음
     - 변수의 중요도가 낮기에 굳이 포함시켜 모델을 돌릴 필요 없음
